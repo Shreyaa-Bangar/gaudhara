@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offers – GAU DHARA</title>
+  <meta name="description" content="Special dairy offers and festival combos from GAU DHARA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="offers.css">
+  <script src="offers.js" defer></script>
+</head>
+<body>
+
+<!-- ===== NAVBAR ===== -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" class="logo" aria-label="GAU DHARA home">
+      <svg viewBox="0 0 64 64" width="46" height="46" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#e6f2d6"/><path d="M4 46q28-26 56 0v10H4z" fill="#2f7a3e"/>
+        <ellipse cx="32" cy="32" rx="14" ry="13" fill="#fff"/><ellipse cx="22" cy="24" rx="5" ry="6" fill="#a8582a"/>
+        <path d="M18 20 12 14M46 20l6-6" stroke="#e8a920" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="32" cy="38" rx="9" ry="6" fill="#f7b7c3"/><circle cx="27" cy="29" r="2" fill="#222"/><circle cx="37" cy="29" r="2" fill="#222"/>
+      </svg>
+      <span><b>GAU DHARA</b><small>Supplying milk direct from cow to user.</small></span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <div class="menu" id="menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="offers.html" class="active" aria-current="page">Offers</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#insights">Insights</a></li>
+        <li><a href="index.html#campaign">Campaign</a></li>
+      </ul>
+      <div class="nav-btns">
+        <span class="counter" title="Offers grabbed">🎁 <b id="offerCount">0</b></span>
+        <button class="btn btn-green" id="loginBtn" type="button">Login / Sign In</button>
+        <button class="btn btn-gold" id="contactBtn" type="button">Contact Us</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ===== HERO ===== -->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="hero-text">
+    <p class="kicker">GAU DHARA • SPECIAL OFFERS</p>
+    <h1 id="heroTitle">Fresh Dairy.<br>Better Deals.</h1>
+    <p>Bring home the goodness of fresh dairy with special savings on your everyday favourites.</p>
+    <div class="hero-btns">
+      <a href="#offers" class="btn btn-green big">Explore Offers</a>
+      <a href="#festivals" class="btn btn-outline big">Festival Offers</a>
+    </div>
+    <ul class="trust"><li>✓ Farm Fresh</li><li>✓ Quality Checked</li><li>✓ Everyday Value</li></ul>
+  </div>
+  <div class="hero-art">
+    <div class="hero-circle" id="heroImg"></div>
+    <div class="badge-round"><small>UP TO</small><b>30%</b><small>OFF</small></div>
+  </div>
+</section>
+
+<!-- ===== PRODUCT OFFERS ===== -->
+<section class="section" id="offers" aria-labelledby="offersTitle">
+  <h2 class="title" id="offersTitle">Today's Dairy Offers</h2>
+  <p class="sub">Pick your favourite dairy product and grab its special GAU DHARA deal.</p>
+  <div class="filters" id="filters" role="group" aria-label="Filter offers">
+    <button type="button" class="filter on" data-cat="All" aria-pressed="true">All</button>
+    <button type="button" class="filter" data-cat="Doodh" aria-pressed="false">Doodh</button>
+    <button type="button" class="filter" data-cat="Dahi" aria-pressed="false">Dahi</button>
+    <button type="button" class="filter" data-cat="Lassi" aria-pressed="false">Lassi</button>
+    <button type="button" class="filter" data-cat="Paneer" aria-pressed="false">Paneer</button>
+    <button type="button" class="filter" data-cat="Ghee" aria-pressed="false">Ghee</button>
+    <button type="button" class="filter" data-cat="Chakka" aria-pressed="false">Chakka</button>
+  </div>
+  <div class="grid" id="productGrid"></div>
+</section>
+
+<!-- ===== PROMO BANNER ===== -->
+<section class="banner reveal" aria-label="Promotion">
+  <span class="deco d1" aria-hidden="true">🪔</span><span class="deco d2" aria-hidden="true">🥛</span><span class="deco d3" aria-hidden="true">🌼</span>
+  <h2>Freshness meets savings.</h2>
+  <p>Because good food should feel good on your pocket too.</p>
+  <a href="#offers" class="btn btn-gold big">Shop Offers →</a>
+</section>
+
+<!-- ===== FESTIVAL OFFERS ===== -->
+<section class="festival" id="festivals" aria-labelledby="festTitle">
+  <div class="section">
+    <h2 class="title light" id="festTitle">Celebrate Every Festival With GAU DHARA</h2>
+    <p class="sub light">Festive combos, family packs and seasonal savings made for sharing.</p>
+    <div class="grid" id="festGrid"></div>
+  </div>
+</section>
+
+<!-- ===== PROMISE ===== -->
+<section class="section" id="promise" aria-labelledby="promiseTitle">
+  <h2 class="title" id="promiseTitle">The GAU DHARA Promise</h2>
+  <p class="sub big-sub">Good products.<br>Good offers.<br>Good moments.</p>
+  <div class="grid">
+    <article class="promise reveal"><span>🥛</span><h3>Fresh Everyday</h3><p>Dairy essentials made for your daily routine.</p></article>
+    <article class="promise reveal"><span>🔬</span><h3>Quality First</h3><p>Carefully handled from source to shelf.</p></article>
+    <article class="promise reveal"><span>💛</span><h3>Value for Families</h3><p>Smart combos and seasonal savings for everyone.</p></article>
+  </div>
+</section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="foot">
+    <div><h3>GAU DHARA</h3><p>Supplying milk direct from cow to user.</p></div>
+    <nav aria-label="Footer links"><a href="index.html">Home</a><a href="products.html">Products</a><a href="offers.html">Offers</a><a href="index.html#about">About Us</a><a href="#" id="footContact">Contact</a></nav>
+    <div class="social"><a href="#" data-social="Instagram" aria-label="Instagram">IG</a><a href="#" data-social="Facebook" aria-label="Facebook">f</a><a href="#" data-social="LinkedIn" aria-label="LinkedIn">in</a></div>
+  </div>
+  <p class="copy">© 2026 GAU DHARA. All Rights Reserved.</p>
+</footer>
+
+<button class="totop" id="toTop" type="button" aria-label="Back to top" hidden>↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

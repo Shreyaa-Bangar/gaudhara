@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Products – GAU DHARA</title>
+  <meta name="description" content="Fresh milk, curd, paneer, buttermilk, chakka and lassi from GAU DHARA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR (same as index.html; links point to index.html#section) ============ -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" class="logo" aria-label="GAU DHARA home">
+      <svg viewBox="0 0 64 64" width="50" height="50" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#e3f4d4"/>
+        <path d="M4 46q28-26 56 0v10H4z" fill="#2e7d32"/>
+        <ellipse cx="32" cy="32" rx="14" ry="13" fill="#fff"/>
+        <ellipse cx="22" cy="24" rx="5" ry="6" fill="#a8582a"/>
+        <path d="M18 20 12 14M46 20l6-6" stroke="#f2c14e" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="32" cy="38" rx="9" ry="6" fill="#f7b7c3"/>
+        <circle cx="27" cy="29" r="2" fill="#222"/><circle cx="37" cy="29" r="2" fill="#222"/>
+      </svg>
+      <span><b>GAU DHARA</b><small>Pure by Nature</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <div class="menu" id="menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html" class="active" aria-current="page">Products</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#insights">Insights</a></li>
+        <li><a href="index.html#campaign">Campaign</a></li>
+        <li><a href="#" id="navChat">💬 Chat Bot</a></li>
+      </ul>
+      <div class="nav-btns">
+        <button class="btn btn-green" id="loginBtn" type="button">👤 Login / Sign In</button>
+        <button class="btn btn-yellow" id="contactBtn" type="button">✉ Contact Us</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ============ PRODUCTS HERO ============ -->
+<section class="p-hero" aria-labelledby="pHeroTitle">
+  <span class="float f1">🍃</span><span class="float f3">💗</span><span class="float f4">💧</span>
+  <div class="p-hero-text">
+    <h1 id="pHeroTitle">Fresh Dairy, Straight From Our Farm</h1>
+    <p>Pure goodness, delivered fresh from cow to your home.</p>
+    <a href="#productList" class="btn btn-green big">Explore Products</a>
+  </div>
+  <div class="p-hero-art" aria-hidden="true">
+    <div class="rainbow"></div>
+    <span class="p-cow">🐄</span><span class="p-milk">🥛</span>
+  </div>
+</section>
+
+<!-- ============ FILTER + SEARCH + GRID ============ -->
+<section class="section" id="productList" aria-label="Our dairy products">
+  <h2 class="title">Our Dairy Products</h2>
+  <p class="sub">Choose your favourite and add it to your cart</p>
+
+  <div class="p-tools">
+    <input type="search" id="pSearch" placeholder="Search your favourite dairy product..." aria-label="Search products" autocomplete="off">
+    <div class="p-filters" id="pFilters" role="group" aria-label="Filter by category">
+      <button type="button" class="p-filter on" data-cat="All" aria-pressed="true">All</button>
+      <button type="button" class="p-filter" data-cat="Milk" aria-pressed="false">Milk</button>
+      <button type="button" class="p-filter" data-cat="Curd" aria-pressed="false">Curd</button>
+      <button type="button" class="p-filter" data-cat="Paneer" aria-pressed="false">Paneer</button>
+      <button type="button" class="p-filter" data-cat="Buttermilk" aria-pressed="false">Buttermilk</button>
+      <button type="button" class="p-filter" data-cat="Chakka" aria-pressed="false">Chakka</button>
+      <button type="button" class="p-filter" data-cat="Lassi" aria-pressed="false">Lassi</button>
+    </div>
+  </div>
+  <p class="p-count" id="pCount" aria-live="polite"></p>
+
+  <div class="pgrid" id="pGrid"></div>
+  <div class="p-empty" id="pEmpty" hidden>
+    <p>😕 No products match your search.</p>
+    <button type="button" class="btn btn-green" id="pReset">Show all products</button>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER (same as index.html) ============ -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div><h3>🐄 GAU DHARA</h3><p>Pure by Nature</p></div>
+    <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="index.html#about">About Us</a><a href="index.html#insights">Insights</a><a href="index.html#campaign">Campaign</a></div>
+    <div><h4>Connect With Us</h4><div class="social"><a href="#" data-social="Instagram" aria-label="Instagram">IG</a><a href="#" data-social="Facebook" aria-label="Facebook">f</a><a href="#" data-social="YouTube" aria-label="YouTube">▶</a></div></div>
+    <button class="help" id="footChat" type="button">For any queries, our chat bot is here to help! →</button>
+  </div>
+  <p class="copy">© 2026 GAU DHARA. All Rights Reserved.</p>
+</footer>
+
+<!-- Shared widgets (same IDs as index.html so script.js works on both pages) -->
+<button class="cart" id="cartBtn" aria-label="Open cart" type="button">🛒 <span id="cartCount">0</span></button>
+<button class="totop" id="toTop" aria-label="Scroll to top" hidden type="button">↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle"></h3><p id="modalText"></p>
+    <button class="btn btn-green" id="modalClose" type="button">Close</button>
+  </div>
+</div>
+<button class="chat-fab" id="chatFab" aria-label="Open chat" type="button">💬</button>
+<section class="chat" id="chat" hidden aria-label="Gau Dhara chatbot">
+  <div class="chat-head"><div><b>Gau Dhara Bot</b><small>● Online</small></div><button id="chatClose" aria-label="Close chat" type="button">✕</button></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="quick" id="quick"><button type="button">Product Information</button><button type="button">Order / Delivery</button><button type="button">General Queries</button><button type="button">Talk to Human</button></div>
+  <form class="chat-form" id="chatForm"><input id="chatInput" type="text" placeholder="Type a message..." aria-label="Type a message" autocomplete="off"><button type="submit" aria-label="Send">➤</button></form>
+</section>
+
+<!-- Products-page only: cart drawer + product detail modal -->
+<div class="drawer-bg" id="drawerBg" hidden></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="drawer-head"><h3>Your Cart</h3><button type="button" id="drawerClose" aria-label="Close cart">✕</button></div>
+  <div class="drawer-list" id="drawerList"></div>
+  <div class="drawer-foot">
+    <p class="drawer-total">Total <b id="drawerTotal">₹0</b></p>
+    <button type="button" class="btn btn-green big" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<div class="pmodal" id="pModal" hidden>
+  <div class="pmodal-box" role="dialog" aria-modal="true" aria-labelledby="pmName">
+    <button type="button" class="pmodal-x" id="pmClose" aria-label="Close details">✕</button>
+    <div class="pm-pic" id="pmPic"></div>
+    <span class="badge" id="pmCat"></span>
+    <h3 id="pmName"></h3>
+    <p id="pmQty" class="pm-qty"></p>
+    <p id="pmDesc"></p>
+    <p class="price" id="pmPrice"></p>
+    <button type="button" class="btn btn-green add" id="pmAdd">Add to Cart</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GAU DHARA – Pure by Nature</title>
+  <meta name="description" content="GAU DHARA supplies fresh milk and dairy directly from cow to user.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#home" class="logo" aria-label="GAU DHARA home">
+      <!-- Inline SVG logo: cow face on a green hill -->
+      <svg viewBox="0 0 64 64" width="50" height="50" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#e3f4d4"/>
+        <path d="M4 46q28-26 56 0v10H4z" fill="#2e7d32"/>
+        <ellipse cx="32" cy="32" rx="14" ry="13" fill="#fff"/>
+        <ellipse cx="22" cy="24" rx="5" ry="6" fill="#a8582a"/>
+        <path d="M18 20 12 14M46 20l6-6" stroke="#f2c14e" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="32" cy="38" rx="9" ry="6" fill="#f7b7c3"/>
+        <circle cx="27" cy="29" r="2" fill="#222"/><circle cx="37" cy="29" r="2" fill="#222"/>
+      </svg>
+      <span><b>GAU DHARA</b><small>Pure by Nature</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <div class="menu" id="menu">
+      <ul class="links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#campaign">Campaign</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="#" id="navChat">💬 Chat Bot</a></li>
+      </ul>
+      <div class="nav-btns">
+        <button class="btn btn-green" id="loginBtn">👤 Login / Sign In</button>
+        <button class="btn btn-yellow" id="contactBtn">✉ Contact Us</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <span class="float f1">🍃</span><span class="float f2">🌼</span><span class="float f3">💗</span><span class="float f4">💧</span>
+  <div class="hero-text">
+    <p class="kicker">Fresh • Pure • Natural</p>
+    <h1>GAU DHARA</h1>
+    <h2>Supplying milk direct<br>from cow to user</h2>
+    <p>Pure goodness, straight from our farms<br>to your home.</p>
+    <a href="products.html" class="btn btn-green big">Explore Our Products →</a>
+  </div>
+  <!-- Hero illustration (SVG): cow, fence, milk jug, glass, grass -->
+  <div class="hero-art" role="img" aria-label="Illustration of a cow with milk jug and glass on a green farm">
+    <svg viewBox="0 0 420 340">
+      <circle cx="320" cy="60" r="38" fill="#ffe27a" opacity=".8"/>
+      <rect x="20" y="190" width="14" height="110" rx="4" fill="#b98a5a"/><rect x="380" y="190" width="14" height="110" rx="4" fill="#b98a5a"/>
+      <rect x="10" y="220" width="400" height="12" rx="5" fill="#c99a68"/>
+      <!-- cow -->
+      <path d="M130 90 100 50M290 90l30-40" stroke="#f2e6c9" stroke-width="12" stroke-linecap="round"/>
+      <ellipse cx="210" cy="170" rx="100" ry="105" fill="#a8582a"/>
+      <path d="M170 80h80l10 120h-100z" fill="#fff"/>
+      <ellipse cx="210" cy="225" rx="62" ry="42" fill="#f7b7c3"/>
+      <ellipse cx="190" cy="228" rx="7" ry="10" fill="#c2576b"/><ellipse cx="230" cy="228" rx="7" ry="10" fill="#c2576b"/>
+      <circle cx="168" cy="150" r="10" fill="#222"/><circle cx="252" cy="150" r="10" fill="#222"/>
+      <circle cx="171" cy="147" r="3" fill="#fff"/><circle cx="255" cy="147" r="3" fill="#fff"/>
+      <rect x="116" y="130" width="16" height="22" rx="3" fill="#f2c14e"/>
+      <!-- jug + glass -->
+      <rect x="290" y="210" width="62" height="85" rx="14" fill="#eaf6ff" stroke="#9cc7e8" stroke-width="3"/>
+      <rect x="296" y="228" width="50" height="62" rx="10" fill="#fff"/>
+      <rect x="240" y="245" width="38" height="50" rx="8" fill="#eaf6ff" stroke="#9cc7e8" stroke-width="3"/>
+      <rect x="244" y="256" width="30" height="35" rx="6" fill="#fff"/>
+      <path d="M0 300q100-30 210-10t210-10v50H0z" fill="#3f9b4a"/>
+      <circle cx="60" cy="305" r="7" fill="#fff"/><circle cx="60" cy="305" r="3" fill="#ffd54f"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ BENEFITS STRIP ============ -->
+<section class="benefits" aria-label="Why GAU DHARA">
+  <div class="benefit"><span class="ico">🌿</span><p>100% Natural<br>&amp; Pure</p></div>
+  <div class="benefit"><span class="ico">🐄</span><p>Direct from<br>Farm to You</p></div>
+  <div class="benefit"><span class="ico">🛡</span><p>No Preservatives<br>No Additives</p></div>
+  <div class="benefit"><span class="ico">❤️</span><p>Support Indian<br>Farmers</p></div>
+</section>
+
+<!-- ============ PRODUCTS (cards are built by script.js from the PRODUCTS list) ============ -->
+<section class="section" id="products">
+  <h2 class="title">Our Products</h2>
+  <p class="sub">Wholesome dairy products for a healthier you</p>
+  <div class="grid" id="productGrid"></div>
+  <p class="tagline-strip">Happy Cows = Healthy Milk = Happy You ♡</p>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="section about" id="about">
+  <div class="about-art" aria-hidden="true">🏡🐄🌾</div>
+  <div>
+    <h2 class="title left">From Our Cows to Your Home</h2>
+    <p>GAU DHARA brings fresh milk and natural dairy straight from farmers to your kitchen. We focus on quality, hygiene and fair support for Indian farmers.</p>
+    <div class="feature-grid">
+      <div class="feature"><b>🥛 Fresh Every Day</b><span>Collected and delivered daily.</span></div>
+      <div class="feature"><b>🧑‍🌾 Farmer First</b><span>Fair prices for our farmers.</span></div>
+      <div class="feature"><b>✅ Quality Assured</b><span>Tested and hygienically packed.</span></div>
+      <div class="feature"><b>🌱 Naturally Good</b><span>No additives, no preservatives.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INSIGHTS ============ -->
+<section class="section" id="insights">
+  <h2 class="title">Insights</h2>
+  <p class="sub">Learn what goes into every glass</p>
+  <div class="grid insights">
+    <article class="card ins c-blue"><div class="pic">🥛</div><h3>Benefits of Fresh Milk</h3><p>Fresh milk is rich in calcium and protein.</p><p class="more" hidden>Drinking it within a day of milking keeps taste and nutrients at their best.</p><button class="link readmore" aria-expanded="false">Read More →</button></article>
+    <article class="card ins c-green"><div class="pic">🌿</div><h3>Why Choose Natural Dairy?</h3><p>No additives means you taste only milk.</p><p class="more" hidden>Natural dairy avoids preservatives and artificial thickeners, so what you drink is simple and honest.</p><button class="link readmore" aria-expanded="false">Read More →</button></article>
+    <article class="card ins c-yellow"><div class="pic">💪</div><h3>Milk &amp; Nutrition</h3><p>A glass gives protein, vitamins and minerals.</p><p class="more" hidden>Milk provides calcium, vitamin B12 and potassium that support bones and muscles.</p><button class="link readmore" aria-expanded="false">Read More →</button></article>
+    <article class="card ins c-pink"><div class="pic">🧑‍🌾</div><h3>Supporting Local Farmers</h3><p>Buying direct puts more money in farmers' hands.</p><p class="more" hidden>Fewer middlemen means fairer pay and a stronger village economy.</p><button class="link readmore" aria-expanded="false">Read More →</button></article>
+  </div>
+</section>
+
+<!-- ============ CAMPAIGN ============ -->
+<section class="section campaign" id="campaign">
+  <h2 class="title">Support Our Farmers</h2>
+  <p class="sub">Every glass of milk can make a difference.</p>
+  <div class="pills"><span>👨‍🌾 Know Your Farmer</span><span>🥛 Fresh From Farm</span><span>🤝 Support Local</span></div>
+  <button class="btn btn-green big" id="joinBtn">Join the Campaign</button>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="foot-grid">
+    <div><h3>🐄 GAU DHARA</h3><p>Pure by Nature</p></div>
+    <div><h4>Quick Links</h4><a href="#home">Home</a><a href="#about">About Us</a><a href="#insights">Insights</a><a href="#campaign">Campaign</a></div>
+    <div><h4>Connect With Us</h4><div class="social"><a href="#" data-social="Instagram" aria-label="Instagram">IG</a><a href="#" data-social="Facebook" aria-label="Facebook">f</a><a href="#" data-social="YouTube" aria-label="YouTube">▶</a></div></div>
+    <button class="help" id="footChat">For any queries, our chat bot is here to help! →</button>
+  </div>
+  <p class="copy">© 2026 GAU DHARA. All Rights Reserved.</p>
+</footer>
+
+<!-- Cart, scroll-top, toast -->
+<button class="cart" id="cartBtn" aria-label="View cart">🛒 <span id="cartCount">0</span></button>
+<button class="totop" id="toTop" aria-label="Scroll to top" hidden>↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<!-- Modal -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <h3 id="modalTitle"></h3><p id="modalText"></p>
+    <button class="btn btn-green" id="modalClose">Close</button>
+  </div>
+</div>
+
+<!-- Chatbot -->
+<button class="chat-fab" id="chatFab" aria-label="Open chat">💬</button>
+<section class="chat" id="chat" hidden aria-label="Gau Dhara chatbot">
+  <div class="chat-head"><div><b>Gau Dhara Bot</b><small>● Online</small></div><button id="chatClose" aria-label="Close chat">✕</button></div>
+  <div class="chat-body" id="chatBody"></div>
+  <div class="quick" id="quick">
+    <button>Product Information</button><button>Order / Delivery</button><button>General Queries</button><button>Talk to Human</button>
+  </div>
+  <form class="chat-form" id="chatForm">
+    <input id="chatInput" type="text" placeholder="Type a message..." aria-label="Type a message" autocomplete="off">
+    <button type="submit" aria-label="Send">➤</button>
+  </form>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
