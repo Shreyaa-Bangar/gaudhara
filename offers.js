@@ -117,8 +117,6 @@ $$('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
   const id = a.getAttribute('href');
   if (id.length > 1 && $(id)) { e.preventDefault(); $(id).scrollIntoView({ behavior: 'smooth' }); closeMenu(); }
 }));
-$('#loginBtn').addEventListener('click', () => showToast('Login is coming soon. 🐄'));
-['#contactBtn', '#footContact'].forEach(s => $(s).addEventListener('click', e => { e.preventDefault(); closeMenu(); showToast('Email us: hello@gaudhara.example'); }));
 $$('[data-social]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); showToast(`${a.dataset.social} page coming soon`); }));
 
 /* ===== 9. BACK TO TOP + SCROLL REVEAL ===== */

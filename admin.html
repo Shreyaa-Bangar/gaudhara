@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Admin Portal – GAU DHARA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div class="gate" id="gate"><p>Checking access…</p></div>
+
+<div class="shell" id="shell" hidden>
+  <aside class="side" id="side">
+    <div class="brand">🐄 <span><b>GAU DHARA</b><small>Admin Portal</small></span></div>
+    <nav aria-label="Admin sections">
+      <button type="button" class="tab on" data-tab="dashboard">📊 Dashboard</button>
+      <button type="button" class="tab" data-tab="products">🥛 Products</button>
+      <button type="button" class="tab" data-tab="orders">📦 Orders <span class="pill" id="pillOrders" hidden></span></button>
+      <button type="button" class="tab" data-tab="messages">✉ Messages <span class="pill" id="pillMsgs" hidden></span></button>
+      <button type="button" class="tab" data-tab="users">👥 Customers</button>
+    </nav>
+    <div class="side-foot">
+      <p id="whoami"></p>
+      <a href="index.html">← View website</a>
+      <button type="button" id="logout">Logout</button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false" aria-controls="side">☰</button>
+      <h1 id="pageTitle">Dashboard</h1>
+      <button type="button" class="btn ghost" id="refresh">↻ Refresh</button>
+    </header>
+    <p class="banner" id="banner" role="alert" hidden></p>
+
+    <section class="panel" id="tab-dashboard">
+      <div class="stats" id="stats"></div>
+      <h2>Recent orders</h2>
+      <div class="table-wrap"><table id="recentTable"></table></div>
+    </section>
+
+    <section class="panel" id="tab-products" hidden>
+      <div class="bar"><p class="muted">Add, edit or hide products. Changes show on the Products page immediately.</p><button type="button" class="btn primary" id="addProduct">+ Add product</button></div>
+      <div class="table-wrap"><table id="productsTable"></table></div>
+    </section>
+
+    <section class="panel" id="tab-orders" hidden>
+      <div class="bar"><label class="muted">Show: <select id="orderFilter"><option value="">All orders</option></select></label></div>
+      <div class="table-wrap"><table id="ordersTable"></table></div>
+    </section>
+
+    <section class="panel" id="tab-messages" hidden>
+      <div class="bar"><label class="muted">Show: <select id="msgFilter"><option value="">All messages</option><option>new</option><option>read</option><option>resolved</option></select></label></div>
+      <div id="msgList" class="msg-list"></div>
+    </section>
+
+    <section class="panel" id="tab-users" hidden>
+      <div class="table-wrap"><table id="usersTable"></table></div>
+    </section>
+  </div>
+</div>
+
+<!-- Add / edit product -->
+<div class="overlay" id="pModal" hidden>
+  <form class="dialog" id="pForm" role="dialog" aria-modal="true" aria-labelledby="pTitle" novalidate>
+    <h2 id="pTitle">Add product</h2>
+    <input type="hidden" id="pId">
+    <div class="grid2">
+      <label>Name<input id="pName" required maxlength="80" placeholder="e.g. Toned Milk"></label>
+      <label>Category<input id="pCat" required maxlength="40" list="catList" placeholder="e.g. Milk"><datalist id="catList"></datalist></label>
+      <label>Quantity / size<input id="pQty" required maxlength="30" placeholder="e.g. 500 ml"></label>
+      <label>Price (₹)<input id="pPrice" type="number" min="0" max="100000" step="1" required></label>
+    </div>
+    <label>Description<textarea id="pDesc" rows="3" maxlength="400"></textarea></label>
+    <label>Image link <small>(optional – https:// link or assets/products/file.png)</small><input id="pImg" maxlength="300"></label>
+    <label class="check"><input type="checkbox" id="pActive" checked> Visible on the website</label>
+    <p class="form-err" id="pErr" role="alert"></p>
+    <div class="row-end"><button type="button" class="btn ghost" id="pCancel">Cancel</button><button type="submit" class="btn primary" id="pSave">Save</button></div>
+  </form>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="nav.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

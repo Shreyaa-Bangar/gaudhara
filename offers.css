@@ -154,3 +154,6 @@ img{max-width:100%;display:block}
   .logo small{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+/* ===== Navbar: logout button (shown when logged in) ===== */
+.btn-outline-nav{padding:.65rem 1.2rem;border-radius:999px;font-weight:700;background:transparent;color:var(--forest);border:2px solid var(--forest);cursor:pointer;font:inherit;font-weight:700}
+.btn-outline-nav:hover{background:var(--leaf)}
