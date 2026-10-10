@@ -181,11 +181,9 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&
 
 async function loadProducts() {
   try {
-    const res = await fetch('/api/products');
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return (await res.json()).products;
+    return (await GD.api('/api/products')).products;      // from Supabase (see nav.js)
   } catch (e) {
-    console.warn('Could not load products from the server – showing the built-in list.', e);
+    console.warn('Could not load products from the database – showing the built-in list.', e);
     return FALLBACK_PRODUCTS;
   }
 }

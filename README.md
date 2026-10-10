@@ -3,29 +3,31 @@
 Full-stack dairy e-commerce site: products, cart & checkout, login/sign-up, contact form, and an **Admin portal**.
 Frontend = plain HTML/CSS/JS. Backend = Node.js + SQLite. **No `npm install` needed** (only Node's built-in modules are used).
 
-## Run it
-Requirements: **Node.js 22.5 or newer** (`node -v` to check).
+## Run it (Supabase version)
+The site is now plain HTML/CSS/JS that talks straight to **Supabase** (database + login). No Node server is needed.
 
-```bash
-node --no-warnings server/server.js      # or:  npm start
-```
+1. Create a Supabase project and run `supabase/schema.sql` in **SQL Editor** (tables, security rules, order function, starter products).
+2. Authentication → Sign In / Providers → Email: turn **Confirm email** OFF while testing.
+3. Create `supabase-config.js` in the project root (it is loaded before `nav.js` on every page):
+   ```js
+   const SUPABASE_URL = 'https://YOUR-PROJECT-ID.supabase.co';
+   const SUPABASE_ANON_KEY = 'sb_publishable_...';      // publishable/anon key ONLY – never the secret/service_role key
+   window.sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+   ```
+4. Open the site through a web server, **not** by double-clicking files (login needs a real `http://` address). In VS Code use the *Live Server* extension, or run `npx serve`, or `python -m http.server 3000`.
+5. Sign up once on the website, then make yourself admin in the SQL Editor:
+   ```sql
+   update public.profiles set role = 'admin' where email = 'your-email@gmail.com';
+   ```
+6. Deploy the folder to Vercel/Netlify, then put the live URL in Supabase → Authentication → URL Configuration.
 
-Open **http://localhost:3000**. The database (`server/data/gaudhara.db`) is created automatically on first run
-with the 14 products already loaded.
-
-> Open the site through the server (`http://localhost:3000`), not by double-clicking the HTML files —
-> login, orders and the admin portal need the server.
+> `nav.js` contains the "API" layer: every page still calls `GD.api('/api/...')`, and nav.js answers those calls with Supabase.
+> The old Node + SQLite server is kept in `server/` only as a reference and is no longer used.
 
 ## Admin portal
 `http://localhost:3000/admin.html` (also shown as "🛠 Admin Portal" in the navbar once an admin is logged in).
 
-First run creates the admin account and prints it in the terminal. Default: `admin@gaudhara.com` / `Admin@12345`.
-**Change it** by setting env vars *before the first run*:
-
-```bash
-ADMIN_EMAIL=you@example.com ADMIN_PASSWORD='a-strong-password' node --no-warnings server/server.js
-```
-(If the DB already exists, delete `server/data/` to re-create it – this erases all data.)
+The admin is whoever has `role = 'admin'` in the `profiles` table (see step 5 above). Admin rights are enforced by Supabase security rules (RLS), not just by the page.
 
 What the admin can do: dashboard stats · add/edit/hide/delete products · view orders and change status
 (Pending → Confirmed → Out for delivery → Delivered / Cancelled) · read, mark and delete contact messages · see customers.
@@ -39,7 +41,7 @@ What the admin can do: dashboard stats · add/edit/hide/delete products · view 
 | Login / Sign up / Contact / My account | `login.html`, `signup.html`, `contact.html`, `account.html` + `auth.js` |
 | Admin portal | `admin.html`, `admin.css`, `admin.js` |
 | Shared navbar login state, fetch helper, cart store | `nav.js` |
-| Backend | `server/server.js` (API + static files), `server/db.js` (tables + seed data) |
+| Supabase | `supabase-config.js` (your URL + publishable key), `supabase/schema.sql` (tables, RLS, functions) |
 
 ## How products work
 The database keeps **one row per size** (e.g. `Paneer 100 g ₹45`, `Paneer 250 g ₹105`). The Products page groups rows
@@ -51,8 +53,8 @@ Public: `GET /api/products`, `POST /api/contact`, `POST /api/auth/signup|login|l
 Customer: `POST /api/orders`, `GET /api/orders/mine`
 Admin only: `/api/admin/stats|products|orders|messages|users`
 
-## Database tables
-`users` · `products` · `orders` · `order_items` · `messages` (see `server/db.js`).
+## Database tables (Supabase)
+`users` · `products` · `orders` · `order_items` · `messages` (see `supabase/schema.sql`).
 
 ## Security notes
 Passwords are hashed with scrypt; sessions are signed HttpOnly cookies; order prices are always recalculated
