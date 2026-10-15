@@ -5,12 +5,29 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 
 /* ===== 1. PRODUCT DATA – edit names, quantities, colours, icons here ===== */
 const PRODUCTS = [
-  { name:'Milk',       icon:'🥛', color:'c-blue',   info:'Fresh, creamy milk from local cows.', qty:['1 L','500 ml'], types:['Toned','Double Toned'] },
-  { name:'Curd',       icon:'🥣', color:'c-green',  info:'Thick, set curd with natural cultures.', qty:['250 g','500 g'] },
-  { name:'Paneer',     icon:'🧀', color:'c-yellow', info:'Soft, fresh paneer made daily.', qty:['100 g','250 g','500 g'] },
-  { name:'Buttermilk', icon:'🥤', color:'c-pink',   info:'Light, cooling and spiced.', qty:['500 ml','1 L'] },
-  { name:'Chakka',     icon:'🍚', color:'c-purple', info:'Strained curd, perfect for shrikhand.', qty:['500 ml','1 L'] },
-  { name:'Lassi',      icon:'🍶', color:'c-blue',   info:'Sweet, chilled and refreshing.', qty:['200 ml'] }
+  {
+  name: 'Milk',
+  icon: '🥛',
+  image: 'https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2024/11/AdobeStock_354060824-1024x683.jpeg',
+  color: 'c-blue',
+  info: 'Fresh, creamy milk from local cows.',
+  qty: ['1 L', '500 ml'],
+  types: ['Toned', 'Double Toned']
+}, 
+  { name:'Curd',       icon:'🥣',    image:'https://t3.ftcdn.net/jpg/03/61/32/70/360_F_361327073_Lf1rMTrwuxRglGsVBHhreNUqYpSFB1nM.jpg', color:'c-green',  info:'Thick, set curd with natural cultures.', qty:['250 g','500 g'] },
+  { name:'Paneer',     icon:'🧀',    image:'https://mykitchendiaries.com/wp-content/webp-express/webp-images/doc-root/wp-content/uploads/2026/01/How-To-Make-Paneer-from-Milk-A-Step-by-Step-Guide.jpg.webp', color:'c-yellow', info:'Soft, fresh paneer made daily.', qty:['100 g','250 g','500 g'] },
+  { name:'Buttermilk', icon:'🥤',    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0Hzo9nxKB2iMx0aEgdlRN_oNpxNtT7GtOTE9FhpH8A9NJKKl32USQn7ca&s=10', color:'c-pink',   info:'Light, cooling and spiced.', qty:['500 ml','1 L'] },
+  { name:'Lassi',      icon:'🍶',    image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp9pt_VtVx0X9IqCDCsWGlS41ZEJt9NGAZWtc6waFv0LQ5ZOLQQYLRLz8&s=10', color:'c-blue',   info:'Sweet, chilled and refreshing.', qty:['200 ml'] },
+  
+{
+  name: 'Ghee',
+  icon: '🫙',
+  image: 'https://patnamlopalleruchulu.in/wp-content/uploads/2024/09/JERSEY-COW-GHEE-580x560.jpg',
+  color: 'c-yellow',
+  info: 'Pure and aromatic ghee made from dairy.',
+  qty: [ '500 ml', '1 L']
+}
+
 ];
 
 /* ===== 2. TOAST + MODAL ===== */
@@ -35,8 +52,12 @@ PRODUCTS.forEach(p => {
   card.className = `card ${p.color} reveal`;
   const chips = (arr, group) => arr.map(v => `<button class="chip" data-group="${group}">${v}</button>`).join('');
   card.innerHTML = `
-    <div class="pic" aria-hidden="true">${p.icon}</div>
-    <h3>${p.icon} ${p.name}</h3>
+    <div class="pic">
+      ${p.image
+        ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
+        : p.icon}
+    </div>
+    <h3>${p.name}</h3>
     <p class="info">${p.info}</p>
     <span class="lbl">Quantity:</span><div class="chips">${chips(p.qty, 'qty')}</div>
     ${p.types ? `<span class="lbl">Types:</span><div class="chips">${chips(p.types, 'type')}</div>` : ''}
@@ -121,7 +142,7 @@ function addMsg(text, who) {
 // Keyword → reply. First match wins. Add your own here.
 const REPLIES = [
   [['milk'], 'Our milk is available in 1 L and 500 ml packs, with Toned and Double Toned options.'],
-  [['curd', 'paneer', 'lassi', 'buttermilk', 'chakka', 'product'], 'We offer Milk, Curd, Paneer, Buttermilk, Chakka and Lassi. Check the Our Products section for sizes.'],
+  [['curd', 'paneer', 'lassi', 'buttermilk', 'product'], 'We offer Milk, Curd, Paneer, Buttermilk and Lassi. Check the Our Products section for sizes.'],
   [['deliver', 'order'], 'We provide direct farm-to-home delivery. Please contact us for delivery availability.'],
   [['price', 'cost', 'rate'], 'Please select a product to view available quantities and pricing.'],
   [['human', 'agent', 'call', 'contact'], 'Our team will be happy to help. Use the Contact Us button at the top of the page.'],
@@ -167,11 +188,9 @@ const FALLBACK_PRODUCTS = [
   { id:9,  name:'Paneer',            category:'Paneer',     quantity:'500 g',  price:200 },
   { id:10, name:'Buttermilk',        category:'Buttermilk', quantity:'500 ml', price:20 },
   { id:11, name:'Buttermilk',        category:'Buttermilk', quantity:'1 L',    price:35 },
-  { id:12, name:'Chakka',            category:'Chakka',     quantity:'500 ml', price:90 },
-  { id:13, name:'Chakka',            category:'Chakka',     quantity:'1 L',    price:170 },
   { id:14, name:'Lassi',             category:'Lassi',      quantity:'200 ml', price:25 }
 ];
-const EMOJI = { Milk:'🥛', Curd:'🥣', Paneer:'🧀', Buttermilk:'🥤', Chakka:'🍚', Lassi:'🍶' };
+const EMOJI = { Milk:'🥛', Curd:'🥣', Paneer:'🧀', Buttermilk:'🥤', Lassi:'🍶' };
 const COLOR = { Milk:'c-blue', Curd:'c-green', Paneer:'c-yellow', Buttermilk:'c-pink', Chakka:'c-purple', Lassi:'c-blue' };
 const DEFAULT_DESC = 'Fresh dairy from GAU DHARA, delivered straight from the farm.';
 const HINT = 'Select a quantity to see the price';

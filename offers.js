@@ -7,10 +7,9 @@ const $$ = (s, p = document) => [...p.querySelectorAll(s)];
 const PRODUCTS = [
   { cat:'Doodh',  name:'Doodh / Milk', emoji:'🥛', off:20, now:48,  was:60,  desc:'Fresh daily milk for tea, coffee, breakfast and family meals.', img:'https://nutritionsource.hsph.harvard.edu/wp-content/uploads/2024/11/AdobeStock_354060824-1024x683.jpeg' },
   { cat:'Dahi',   name:'Dahi / Curd',  emoji:'🥣', off:15, now:42,  was:50,  desc:'Thick, creamy and perfect for every Indian meal.', img:'https://www.ruchiskitchen.com/wp-content/uploads/2014/06/How-to-set-curd-in-winters-11-768x1152.jpg.webp' },
-  { cat:'Lassi',  name:'Lassi',        emoji:'🍶', off:25, now:30,  was:40,  desc:'Cool, creamy and refreshing — your perfect dairy drink.', img:'https://lookaside.instagram.com/seo/google_widget/crawler/?media_id=3724393110671745687' },
+  { cat:'Lassi',  name:'Lassi',        emoji:'🍶', off:25, now:30,  was:40,  desc:'Cool, creamy and refreshing — your perfect dairy drink.', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp9pt_VtVx0X9IqCDCsWGlS41ZEJt9NGAZWtc6waFv0LQ5ZOLQQYLRLz8&s=10' },
   { cat:'Paneer', name:'Paneer',       emoji:'🧀', off:18, now:205, was:250, desc:'Soft, fresh paneer for curries, snacks and celebrations.', img:'https://5.imimg.com/data5/ANDROID/Default/2023/3/EH/YT/EO/108385388/product-jpeg-500x500.jpg' },
   { cat:'Ghee',   name:'Ghee',         emoji:'🍯', off:20, now:400, was:500, desc:'Rich, aromatic ghee for cooking, sweets and festive recipes.', img:'https://patnamlopalleruchulu.in/wp-content/uploads/2024/09/JERSEY-COW-GHEE-580x560.jpg' },
-  { cat:'Chakka', name:'Chakka',       emoji:'🍚', off:15, now:170, was:200, desc:'Smooth, thick chakka for shrikhand and delicious desserts.', img:'https://5.imimg.com/data5/ANDROID/Default/2024/4/406492992/GJ/RO/FE/154829823/product-jpeg-500x500.jpg' }
 ];
 const FESTIVALS = [
   { emoji:'🪔', fest:'DIWALI',          title:'Diwali Doodh & Ghee Combo', off:'20% OFF',        desc:'Buy festive dairy essentials and save more this Diwali.', msg:'Diwali Offer selected! 🪔 Enjoy 20% OFF on the festive combo.' },
