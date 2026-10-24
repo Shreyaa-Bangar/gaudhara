@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Subscriptions – GAU DHARA Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+<div class="gate" id="gate"><p>Checking access…</p></div>
+<div class="main" id="page" hidden style="max-width:1100px;margin:auto">
+  <header class="topbar">
+    <h1>🔁 Subscriptions</h1>
+    <a class="btn ghost" href="admin.html">← Admin Portal</a>
+  </header>
+  <p class="banner" id="banner" role="alert" hidden></p>
+  <div class="bar"><label class="muted">Show: <select id="filter"><option value="">All</option><option>active</option><option>paused</option><option>cancelled</option></select></label></div>
+  <div class="table-wrap"><table id="tbl"></table></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="nav.js"></script>
+<script>
+const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const FREQ = { daily: 'Every day', alternate: 'Alternate days', weekly: 'Once a week' };
+GD.ready.then(user => {
+  const gate = document.getElementById('gate');
+  if (!user) { location.replace('login.html?next=admin-subscriptions.html'); return; }
+  if (user.role !== 'admin') { gate.innerHTML = '<div><h1>🚫 Admins only</h1><a href="index.html">Back to the website</a></div>'; return; }
+  gate.hidden = true; document.getElementById('page').hidden = false;
+  load();
+});
+document.getElementById('filter').addEventListener('change', load);
+async function load() {
+  const banner = document.getElementById('banner'); banner.hidden = true;
+  const { data: subs, error } = await sb.from('subscriptions').select('*').order('id', { ascending: false }).limit(300);
+  if (error) { banner.textContent = error.message; banner.hidden = false; return; }
+  const f = document.getElementById('filter').value, rows = subs.filter(s => !f || s.status === f);
+  document.getElementById('tbl').innerHTML = '<thead><tr><th>#</th><th>Customer</th><th>Product</th><th>Delivery</th><th>Starts</th><th>Address</th><th>Status</th></tr></thead><tbody>' +
+    (rows.length ? rows.map(s => `<tr><td>${s.id}</td><td>${esc(s.name)}<span class="sub">${esc(s.phone)}</span></td>
+      <td>${esc(s.product_name)} (${esc(s.quantity)}) × ${s.qty}<span class="sub">₹${s.price * s.qty} per delivery</span></td>
+      <td>${FREQ[s.frequency] || esc(s.frequency)}</td><td>${esc(s.start_date)}</td><td>${esc(s.address)}</td>
+      <td><span class="tag ${s.status === 'active' ? 'ok' : s.status === 'cancelled' ? 'no' : ''}">${esc(s.status)}</span></td></tr>`).join('')
+      : '<tr><td class="empty" colspan="7">No subscriptions yet.</td></tr>') + '</tbody>';
+}
+</script>
+</body>
+</html>

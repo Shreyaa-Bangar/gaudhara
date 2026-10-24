@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Subscribe – GAU DHARA</title>
+  <meta name="description" content="Subscribe to daily, alternate-day or weekly dairy delivery from GAU DHARA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="subscription.css">
+</head>
+<body>
+
+<header class="nav-wrap">
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html" class="logo" aria-label="GAU DHARA home">
+      <svg viewBox="0 0 64 64" width="50" height="50" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="#e3f4d4"/>
+        <path d="M4 46q28-26 56 0v10H4z" fill="#2e7d32"/>
+        <ellipse cx="32" cy="32" rx="14" ry="13" fill="#fff"/>
+        <ellipse cx="22" cy="24" rx="5" ry="6" fill="#a8582a"/>
+        <path d="M18 20 12 14M46 20l6-6" stroke="#f2c14e" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="32" cy="38" rx="9" ry="6" fill="#f7b7c3"/>
+        <circle cx="27" cy="29" r="2" fill="#222"/><circle cx="37" cy="29" r="2" fill="#222"/>
+      </svg>
+      <span><b>GAU DHARA</b><small>Pure by Nature</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+    <div class="menu" id="menu">
+      <ul class="links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="index.html#about">About Us</a></li>
+        <li><a href="index.html#insights">Insights</a></li>
+        <li><a href="index.html#campaign">Campaign</a></li>
+        <li><a href="offers.html">Offers</a></li>
+        <li><a href="subscribe.html">Subscribe</a></li>
+      </ul>
+      <div class="nav-btns">
+        <button class="btn btn-green" id="loginBtn" type="button">👤 Login / Sign In</button>
+        <button class="btn btn-yellow" id="contactBtn" type="button">✉ Contact Us</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+<section class="auth-wrap" style="align-items:start">
+  <div class="auth-card" style="width:min(760px,100%);align-items:stretch">
+    <h1>🔁 Milk Subscription</h1>
+    <p class="sub2">Fresh dairy at your door on a schedule. Pause or cancel any time.</p>
+
+    <form id="subForm" class="form" novalidate>
+      <div class="field"><label for="sProduct">Product</label><select id="sProduct" required></select><span class="err" role="alert"></span></div>
+      <div class="field"><span class="lbl" id="sSizeLbl">Size</span><div class="chips" id="sSizes" role="group" aria-labelledby="sSizeLbl"></div><span class="err" role="alert"></span></div>
+      <div class="field"><label for="sQty">Quantity per delivery</label><input id="sQty" type="number" min="1" max="20" value="1" required><span class="err" role="alert"></span></div>
+      <fieldset class="field sub-freq"><legend>How often?</legend>
+        <label><input type="radio" name="freq" value="daily" checked> Every day</label>
+        <label><input type="radio" name="freq" value="alternate"> Alternate days</label>
+        <label><input type="radio" name="freq" value="weekly"> Once a week</label>
+      </fieldset>
+      <div class="field"><label for="sStart">Start date</label><input id="sStart" type="date" required><span class="err" role="alert"></span></div>
+      <div class="field"><label for="sName">Name</label><input id="sName" maxlength="80" autocomplete="name" required><span class="err" role="alert"></span></div>
+      <div class="field"><label for="sPhone">Mobile number</label><input id="sPhone" inputmode="tel" maxlength="16" autocomplete="tel" required><span class="err" role="alert"></span></div>
+      <div class="field"><label for="sAddress">Delivery address</label><textarea id="sAddress" rows="3" maxlength="300" autocomplete="street-address" required></textarea><span class="err" role="alert"></span></div>
+      <p class="price-line" id="sPrice" aria-live="polite">Select a size to see the price</p>
+      <p class="form-err" id="formErr" role="alert"></p>
+      <button type="submit" class="btn btn-green">Start Subscription</button>
+    </form>
+
+    <h2 style="font-family:var(--display);color:var(--forest);margin-top:18px">My Subscriptions</h2>
+    <div id="subList" class="orders-list"><p class="sub2">Log in to see your subscriptions.</p></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="foot-grid">
+    <div><h3>🐄 GAU DHARA</h3><p>Pure by Nature</p></div>
+    <div><h4>Quick Links</h4><a href="index.html">Home</a><a href="products.html">Products</a><a href="offers.html">Offers</a><a href="contact.html">Contact Us</a></div>
+  </div>
+  <p class="copy">© 2026 GAU DHARA. All Rights Reserved.</p>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+<script src="nav.js"></script>
+<script src="subscribe.js"></script>
+</body>
+</html>
